@@ -43,6 +43,12 @@ var initCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		if len(tracks) == 0 {
+			fmt.Println("no mp3 tracks")
+			os.Exit(1)
+		}
+
 		natsort.Sort(tracks)
 		fmt.Println("# processing tracks")
 		bar := progressbar.Default(int64(len(tracks)))
