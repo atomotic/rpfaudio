@@ -2,6 +2,7 @@
 
 A small opinionated cli to create [Readium Audiobooks](https://readium.org/webpub-manifest/profiles/audiobook.html) from a directory containing mp3 files.
 
+[![asciicast](https://asciinema.org/a/4wIavwIVHDMINLkgOl0m14H03.svg)](https://asciinema.org/a/4wIavwIVHDMINLkgOl0m14H03)
 
 ## install
 
