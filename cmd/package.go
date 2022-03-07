@@ -42,17 +42,19 @@ var packageCmd = &cobra.Command{
 		}
 
 		// write cover
-		fmt.Println("# add cover")
-		zcover, err := zipwriter.Create("cover.jpg")
-		if err != nil {
-			log.Fatal(err)
-		}
+		if _, err := os.Stat("cover.jpg"); err == nil {
+			fmt.Println("# add cover")
+			zcover, err := zipwriter.Create("cover.jpg")
+			if err != nil {
+				log.Fatal(err)
+			}
 
-		cover, _ := os.Open("cover.jpg")
-		defer manifest.Close()
-		_, err = io.Copy(zcover, cover)
-		if err != nil {
-			log.Fatal(err)
+			cover, _ := os.Open("cover.jpg")
+			defer manifest.Close()
+			_, err = io.Copy(zcover, cover)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 
 		// write tracks (STORED)
